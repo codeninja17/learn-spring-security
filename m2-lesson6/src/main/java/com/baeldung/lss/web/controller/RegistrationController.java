@@ -172,6 +172,8 @@ class RegistrationController {
             model.put("questions", securityQuestionDefinitionRepository.findAll());
             return new ModelAndView("resetPassword", model);
         }
+
+
         final PasswordResetToken p = userService.getPasswordResetToken(token);
         if (p == null) {
             redirectAttributes.addFlashAttribute("message", "Invalid token");

@@ -1,4 +1,4 @@
-package com.baeldung.lss.web.model;
+package com.baeldung.lss.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

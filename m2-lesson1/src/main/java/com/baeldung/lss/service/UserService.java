@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.baeldung.lss.persistence.UserRepository;
 import com.baeldung.lss.validation.EmailExistsException;
-import com.baeldung.lss.web.model.User;
+import com.baeldung.lss.model.User;
 
 @Service
 @Transactional
@@ -26,6 +26,7 @@ class UserService implements IUserService {
             throw new EmailExistsException("There is an account with that email address: " + user.getEmail());
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setPasswordConfirmation(user.getPassword());
         return repository.save(user);
     }
 

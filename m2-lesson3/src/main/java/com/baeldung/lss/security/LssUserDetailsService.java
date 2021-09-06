@@ -14,7 +14,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.baeldung.lss.persistence.UserRepository;
-import com.baeldung.lss.web.model.User;
+import com.baeldung.lss.model.User;
 
 @Service
 @Transactional
