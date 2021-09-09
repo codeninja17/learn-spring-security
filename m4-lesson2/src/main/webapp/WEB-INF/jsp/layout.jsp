@@ -25,7 +25,7 @@
                     <li><a href="${pageContext.request.contextPath}/user"> Users </a></li>
                 </ul>
                 <ul class="nav pull-right">
-                    <li><span class="navbar-text">Hi, <sec:authentication property="principal.username" /></span></li>
+                    <li><span class="navbar-text">Hi, <sec:authentication property="name" /></span></li>
                     <li><a href="${pageContext.request.contextPath}/logout" class="menu-right" > Logout </a></li>
                 </ul>
             </div>
