@@ -3,6 +3,7 @@ package com.baeldung.lss.web.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,8 +23,7 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    //
-
+    @PreAuthorize("isAdmin()")
     @RequestMapping
     public ModelAndView list() {
         Iterable<User> users = this.userRepository.findAll();
@@ -62,7 +62,7 @@ public class UserController {
     }
 
     // the form
-
+    @PreAuthorize("isAuthenticated()")
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String createForm(@ModelAttribute User user) {
         return "tl/form";

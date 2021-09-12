@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <description>The &quot;Learn Spring Security Core&quot; Course: By URL Authorization with Expressions</description>
-    
+    <description>The &quot;Learn Spring Security Core&quot; Course: Programmatic Expressions and a custom PermissionEvaluator - End</description>
+
 
     <groupId>com.baeldung.m5</groupId>
     <artifactId>learn-spring-security-m5-l1</artifactId>
@@ -42,9 +42,9 @@
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
         <dependency>
-			<groupId>nz.net.ultraq.thymeleaf</groupId>
-			<artifactId>thymeleaf-layout-dialect</artifactId>
-		</dependency>
+            <groupId>nz.net.ultraq.thymeleaf</groupId>
+            <artifactId>thymeleaf-layout-dialect</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -75,18 +75,43 @@
             <artifactId>hsqldb</artifactId>
             <scope>runtime</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+
         <!-- <dependency> -->
         <!-- <groupId>mysql</groupId> -->
         <!-- <artifactId>mysql-connector-java</artifactId> -->
         <!-- <version>${mysql.version}</version> -->
         <!-- </dependency> -->
 
-        <!-- common utilities -->
+        <!-- test scoped -->
 
         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava.version}</version>
+            <groupId>com.jayway.restassured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.hamcrest</groupId>
+                    <artifactId>hamcrest-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
@@ -104,6 +129,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <useSystemClassLoader>false</useSystemClassLoader>
+                    <excludes>
+                        <exclude>**/*LiveTest.java</exclude>
+                    </excludes>
                 </configuration>
             </plugin>
 
@@ -115,13 +143,12 @@
         <!-- non-dependencies -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
-        
-        <!-- commons and utils -->
-        <guava.version>21.0</guava.version>
-        
+
+        <rest-assured.version>2.9.0</rest-assured.version>
+
         <!-- maven plugins -->
-		<maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
-		
+        <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
+
     </properties>
 
     <developers>

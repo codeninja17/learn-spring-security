@@ -16,7 +16,6 @@ public class CustomMethodSecurityExpressionHandler extends DefaultMethodSecurity
         root.setTrustResolver(new AuthenticationTrustResolverImpl());
         root.setRoleHierarchy(getRoleHierarchy());
         root.setDefaultRolePrefix("ROLE_");
-
         return root;
     }
 
