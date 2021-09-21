@@ -31,8 +31,6 @@ public class LssSecurityConfig extends WebSecurityConfigurerAdapter {
         super();
     }
 
-    //
-
     @PostConstruct
     private void saveTestUser() {
         final User user = new User();

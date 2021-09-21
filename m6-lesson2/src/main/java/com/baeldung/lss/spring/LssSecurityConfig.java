@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.baeldung.lss.model.User;
@@ -29,8 +30,6 @@ public class LssSecurityConfig extends WebSecurityConfigurerAdapter {
     public LssSecurityConfig() {
         super();
     }
-
-    //
 
     @PostConstruct
     private void saveTestUser() {
@@ -71,7 +70,7 @@ public class LssSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        return new MessageDigestPasswordEncoder("MD5");
     }
 
 }
